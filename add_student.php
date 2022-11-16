@@ -1,6 +1,6 @@
 <?php
-require_once('/libs/conn.php');
-// print_r($_GET);
+$mysqli = new mysqli("localhost", "root", "ict315", "db_stu");
+print_r($_GET);
 
 $g_id = $_GET['stu_id'];
 $g_title = $_GET['stu_title'];
@@ -29,6 +29,6 @@ if ($_GET['stu_id'] <> '') {
     <title></title>
   </head>
   <body>
-    <a href="index.php" type="submit"><br>Back to: Register Page</a>
+    <a href="index2.php" type="submit"><br>Back to: Register Page</a>
   </body>
 </html>

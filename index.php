@@ -1,14 +1,11 @@
-<?php
-require_once('/libs/conn.php');
-
-
-
-$sql = 'SELECT * FROM students';
-$result = mysqli_query($mysqli, $sql);
-// Fetch all
-$rows_student = $result -> fetch_all(MYSQLI_ASSOC);
-
- ?>
+<?php 
+	$mysqli = new mysqli("localhost", "root", "ict315", "db_stu");
+	
+	$sql = 'SELECT * FROM students';
+	$result = mysqli_query($mysqli, $sql);
+	// Fetch all
+	$rows_student = $result->fetch_all(MYSQLI_ASSOC);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -147,13 +144,13 @@ a {
            <th>stu_tel</th>
            <th>stu_byear</th>
          </tr>
-         <?php foreach ($rows_student as $row): ?>
+         <?php foreach($rows_student as $row): ?>
          <tr>
-           <td><?=$row['stu_id'] ?></td>
-           <td><?=$row['stu_title'] ?></td>
-           <td><?=$row['stu_name'] ?></td>
-           <td><?=$row['stu_tel'] ?></td>
-           <td><?=$row['stu_byear'] ?></td>
+         <td><?=$row['stu_id'] ?></td>
+         <td><?=$row['stu_title'] ?></td>
+         <td><?=$row['stu_name'] ?></td>
+         <td><?=$row['stu_tel'] ?></td>
+         <td><?=$row['stu_byear'] ?></td>
          </tr>
          <?php endforeach; ?>
        </table>
@@ -170,6 +167,3 @@ a {
 </body>
 </html>
 
-<?php
-$mysqli->close();
- ?>
